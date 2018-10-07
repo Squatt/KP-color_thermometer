@@ -9,7 +9,6 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.enterprise.squatt.MESSAGE";
     public static final String EXTRA_COLOR_LIST = "com.enterprise.squatt.COLOR_LIST";
 
     private Button room1Button = null;

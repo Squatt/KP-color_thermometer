@@ -20,9 +20,7 @@ import java.util.Random;
 public class RoomScript extends AppCompatActivity {
     final String NAMEACTIVITY = "RoomScript Activity";
 
-    private TextView messageOnUI = null;
     private View viewTemperature = null;
-    private TextView colorsTransitionText = null;
 
     List<String> shades;
     int countDownInterval = 100;
@@ -42,17 +40,12 @@ public class RoomScript extends AppCompatActivity {
 
         // get parameter from parent
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         ArrayList<String> listColors = intent.getStringArrayListExtra(MainActivity.EXTRA_COLOR_LIST);
         shades = listColors;
         intent.getStringArrayListExtra(MainActivity.EXTRA_COLOR_LIST);
-        //shades = Arrays.asList("#FF0000", "#00FF00", "#0000FF");
 
         // connect front with back
         viewTemperature = findViewById(R.id.viewTemperature);
-        colorsTransitionText = findViewById(R.id.transitionIndicator);
-        messageOnUI = findViewById(R.id.textView);
-        messageOnUI.setText(message);
 
         // initialize loop color
         millisInFuture = chooseTimeTransition();
@@ -60,7 +53,6 @@ public class RoomScript extends AppCompatActivity {
         String colorTwo = chooseShade(shades);
         startColor = Color.parseColor(colorOne);
         endColor = Color.parseColor(colorTwo);
-        colorsTransitionText.setText("Transition : " + colorOne + " => " + colorTwo);
         shadesTransition();
     }
 
@@ -68,20 +60,17 @@ public class RoomScript extends AppCompatActivity {
         new CountDownTimer(millisInFuture, countDownInterval) {
 
             public void onTick(long millisUntilFinished) {
-                messageOnUI.setText("seconds remaining: " + millisUntilFinished / countDownInterval);
                 int diff = (int) millisUntilFinished / countDownInterval;
                 int colorStep = computeTransitionColorStep(diff, startColor, endColor);
                 viewTemperature.setBackgroundColor(colorStep);
             }
 
             public void onFinish() {
-                messageOnUI.setText("done!");
                 millisInFuture = chooseTimeTransition();
                 String colorOne = chooseShade(shades);
                 String colorTwo = chooseShade(shades);
                 startColor = Color.parseColor(colorOne);
                 endColor = Color.parseColor(colorTwo);
-                colorsTransitionText.setText("Transition : " + colorOne + " => " + colorTwo);
                 shadesTransition();
             }
         }.start();

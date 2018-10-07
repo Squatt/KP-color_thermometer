@@ -3,6 +3,4 @@
     <string name="Room1">Room one</string>
     <string name="Room2">Room two</string>
     <string name="Room3">Room three</string>
-    <string name="transitionText">Transition : color => color</string>
-    <string name="counterText">Counter text</string>
 </resources>
