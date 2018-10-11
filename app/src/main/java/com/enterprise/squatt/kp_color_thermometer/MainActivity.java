@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomScript.class);
 
                 ArrayList<String> colors = new ArrayList<>();
-                colors.add("#F00011");
-                colors.add("#00F110");
-                colors.add("#1000FF");
+                colors.add("#EAFAF1");
+                colors.add("#186A3B");
+                colors.add("#2ECC71");
 
                 intent.putStringArrayListExtra(EXTRA_COLOR_LIST, colors);
 
