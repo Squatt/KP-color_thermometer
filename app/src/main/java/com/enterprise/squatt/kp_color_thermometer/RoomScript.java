@@ -25,7 +25,7 @@ public class RoomScript extends AppCompatActivity {
     List<String> shades;
     int countDownInterval = 100;
     int millisInFuture = 10000;
-    int[] timer = new int[] { 10000, 15000, 5000 };
+    int[] timer = new int[] { 10000, 5000, 2500 };
 
     int startColor = 0;
     int endColor = 0;
@@ -67,9 +67,10 @@ public class RoomScript extends AppCompatActivity {
 
             public void onFinish() {
                 millisInFuture = chooseTimeTransition();
-                String colorOne = chooseShade(shades);
+                startColor = endColor;
+                //String colorOne = chooseShade(shades);
                 String colorTwo = chooseShade(shades);
-                startColor = Color.parseColor(colorOne);
+                //startColor = Color.parseColor(colorOne);
                 endColor = Color.parseColor(colorTwo);
                 shadesTransition();
             }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         // Get UI button
@@ -32,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomScript.class);
 
                 ArrayList<String> colors = new ArrayList<>();
-                colors.add("#F00011");
-                colors.add("#00F110");
-                colors.add("#1000FF");
+                colors.add("#FF9000");
+                colors.add("#FFBA00");
+                colors.add("#FFC800");
 
                 intent.putStringArrayListExtra(EXTRA_COLOR_LIST, colors);
 
@@ -49,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomScript.class);
 
                 ArrayList<String> colors = new ArrayList<>();
-                colors.add("#FF0002");
-                colors.add("#02F002");
-                colors.add("#0022FF");
+                colors.add("#FF9000");
+                colors.add("#FF6500");
+                colors.add("#FF4D00");
 
                 intent.putStringArrayListExtra(EXTRA_COLOR_LIST, colors);
 
@@ -66,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomScript.class);
 
                 ArrayList<String> colors = new ArrayList<>();
-                colors.add("#FF3333");
-                colors.add("#33FF0F");
-                colors.add("#3003FF");
+                colors.add("#FF9000");
+                colors.add("#FFD300");
+                colors.add("#FFE800");
 
                 intent.putStringArrayListExtra(EXTRA_COLOR_LIST, colors);
 
